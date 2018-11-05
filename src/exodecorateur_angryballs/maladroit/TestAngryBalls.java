@@ -13,7 +13,6 @@ import exodecorateur_angryballs.maladroit.modele.BilleMvtRURebond;
 import exodecorateur_angryballs.maladroit.modele.BilleMvtPesanteurFrottementRebond;
 import exodecorateur_angryballs.maladroit.vues.CadreAngryBalls;
 import exodecorateur_angryballs.maladroit.vues.VueBillard;
-import exodecorateur_angryballs.modele.*;
 
 /**
  * Gestion d'une liste de billes en mouvement ayant toutes un comportement différent

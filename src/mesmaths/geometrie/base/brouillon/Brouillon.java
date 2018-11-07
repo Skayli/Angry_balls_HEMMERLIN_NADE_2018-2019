@@ -7,15 +7,19 @@ public class Brouillon
 
 
 
+private double x;
+private double y;
+
 /**
  * @param string respectant le format " ( nombre réel , nombre réel )"
  * c'est le même format que celui du résultat de toString() 
  * Accepte un nombre quelconque d'espaces de part et d'autre des symboles '('  et ',' et  ')'
  * 
  * efface dans string tout caractère analysé avec succès
+ * @return 
  * 
  * */
-public Vecteur(StringBuffer string)
+public void Vecteur(StringBuffer string)
 {
 int p0 = string.indexOf("(");
 

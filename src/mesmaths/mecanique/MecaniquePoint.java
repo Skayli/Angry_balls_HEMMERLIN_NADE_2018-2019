@@ -44,7 +44,7 @@ return v.produit(-coefficientFrottement);
  * 
  * @return la force de frottement
  * */
-private static Vecteur frottementVisqueux(Vecteur v)
+static Vecteur frottementVisqueux(Vecteur v)
 {
 return MecaniquePoint.frottementVisqueux(v, COEFFICIENTFROTTEMENT);
 }

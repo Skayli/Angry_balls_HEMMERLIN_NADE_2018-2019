@@ -3,6 +3,8 @@ package exodecorateur_angryballs.vues;
 import java.awt.*;
 import java.util.Vector;
 
+import javax.swing.JPanel;
+
 import exodecorateur_angryballs.modele.Bille;
 import outilsvues.EcouteurTerminaison;
 
@@ -20,7 +22,8 @@ public class CadreAngryBalls extends Frame implements VueBillard
 TextField présentation;
 Billard billard;
 public Button lancerBilles, arrêterBilles;
-Panel haut, centre, bas;
+Panel haut, bas;
+JPanel centre;
 
 EcouteurTerminaison ecouteurTerminaison;
 
@@ -34,7 +37,9 @@ this.ecouteurTerminaison = new EcouteurTerminaison(this);
 this.haut = new Panel(); this.haut.setBackground(Color.LIGHT_GRAY);
 this.add(this.haut,BorderLayout.NORTH);
 
-this.centre = new Panel();
+this.centre = new JPanel();
+centre.setDoubleBuffered(true);
+centre.setIgnoreRepaint(true);
 this.add(this.centre,BorderLayout.CENTER);
 
 this.bas = new Panel(); this.bas.setBackground(Color.LIGHT_GRAY);
@@ -74,6 +79,10 @@ this.billard.repaint();
 public void montrer()
 {
 this.setVisible(true);
+}
+
+public Billard getBillard() {
+	return this.billard;
 }
 
 

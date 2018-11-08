@@ -1,6 +1,7 @@
 package exodecorateur_angryballs.projet;
 
 import java.awt.Color;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
@@ -32,6 +33,10 @@ CadreAngryBalls cadre = new CadreAngryBalls("Angry balls",
                                         billes);
 
 cadre.montrer(); // on rend visible la vue
+
+Souris souris = new Souris();
+cadre.getBillard().addMouseListener(souris);
+cadre.getBillard().addMouseMotionListener(souris);
 
 //------------- remplissage de la liste avec 4 billes -------------------------------
 
@@ -81,13 +86,14 @@ billes.add(new BilleMvtRUPasseMurailles(p3, rayon, v3, Color.cyan));
 billes.add(new BilleMvtNewtonArret(p4, rayon, v4,  Color.black));
 */
 //-------------------- Nouvelle définition utilisant le DP décorateur -----------------
-billes.add(new BilleNormale(p0,rayon, v0, Color.red));	//créé une bille avec mouvement RU et rebond sur les parois
-billes.add(new ComportementPesanteur(new ComportementFrottements(new BilleNormale(p1, rayon, v1, Color.yellow))));	//créé une bille sensible à la pesanteur et aux frottements
-billes.add(new ComportementNewton(new ComportementFrottements(new BilleNormale(p2, rayon, v2, Color.green))));	// créé une bille sensible aux frottements et à l'attraction des autres
-billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
-billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
+//billes.add(new BilleNormale(p0,rayon, v0, Color.red));	//créé une bille avec mouvement RU et rebond sur les parois
+//billes.add(new ComportementPesanteur(new ComportementFrottements(new BilleNormale(p1, rayon, v1, Color.yellow))));	//créé une bille sensible à la pesanteur et aux frottements
+//billes.add(new ComportementNewton(new ComportementFrottements(new BilleNormale(p2, rayon, v2, Color.green))));	// créé une bille sensible aux frottements et à l'attraction des autres
+//billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
+//billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
 //*****DANGER BILLE ROSE******\\\
 //billes.add(new ComportementArretSurLesBords(new ComportementPasseMurailles(new BilleNormale(Vecteur.créationAléatoire(0, 0, xMax, yMax), rayon, Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax), Color.pink))));
+billes.add(new ComportementBillePilotee(new BilleNormale(p0,rayon,v0,Color.gray), souris));
 
 //---------------------- ici finit la partie à changer -------------------------------------------------------------
 

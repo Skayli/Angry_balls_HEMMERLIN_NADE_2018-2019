@@ -20,9 +20,6 @@ public class Souris extends Observable implements MouseListener, MouseMotionList
 	}
 	
 
-	
-
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

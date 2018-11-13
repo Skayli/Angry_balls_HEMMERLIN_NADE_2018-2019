@@ -93,7 +93,7 @@ billes.add(new BilleMvtNewtonArret(p4, rayon, v4,  Color.black));
 //billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
 //*****DANGER BILLE ROSE******\\\
 //billes.add(new ComportementArretSurLesBords(new ComportementPasseMurailles(new BilleNormale(Vecteur.créationAléatoire(0, 0, xMax, yMax), rayon, Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax), Color.pink))));
-billes.add(new ComportementBillePilotee(new BilleNormale(p0,rayon,v0,Color.gray), souris));
+billes.add(new ComportementBillePilotee(new ComportementPasseMurailles(new BilleNormale(p0,rayon,v0,Color.gray)),souris));
 
 //---------------------- ici finit la partie à changer -------------------------------------------------------------
 

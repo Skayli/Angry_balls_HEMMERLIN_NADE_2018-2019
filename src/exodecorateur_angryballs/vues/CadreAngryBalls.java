@@ -22,8 +22,7 @@ public class CadreAngryBalls extends Frame implements VueBillard
 TextField présentation;
 Billard billard;
 public Button lancerBilles, arrêterBilles;
-Panel haut, bas;
-JPanel centre;
+Panel haut, bas, centre;
 
 EcouteurTerminaison ecouteurTerminaison;
 
@@ -37,13 +36,11 @@ this.ecouteurTerminaison = new EcouteurTerminaison(this);
 this.haut = new Panel(); this.haut.setBackground(Color.LIGHT_GRAY);
 this.add(this.haut,BorderLayout.NORTH);
 
-this.centre = new JPanel();
-centre.setDoubleBuffered(true);
-//centre.setIgnoreRepaint(true);
-this.add(this.centre,BorderLayout.CENTER);
-
 this.bas = new Panel(); this.bas.setBackground(Color.LIGHT_GRAY);
 this.add(this.bas,BorderLayout.SOUTH);
+
+this.centre = new Panel();
+this.add(this.centre,BorderLayout.CENTER);
 
 this.présentation = new TextField(message, 100); this.présentation.setEditable(false);
 this.haut.add(this.présentation);

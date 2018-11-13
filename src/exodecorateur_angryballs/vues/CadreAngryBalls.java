@@ -39,7 +39,7 @@ this.add(this.haut,BorderLayout.NORTH);
 
 this.centre = new JPanel();
 centre.setDoubleBuffered(true);
-centre.setIgnoreRepaint(true);
+//centre.setIgnoreRepaint(true);
 this.add(this.centre,BorderLayout.CENTER);
 
 this.bas = new Panel(); this.bas.setBackground(Color.LIGHT_GRAY);

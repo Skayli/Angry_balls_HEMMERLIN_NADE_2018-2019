@@ -2,6 +2,7 @@ package exodecorateur_angryballs.maladroit.vues;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import java.util.Vector;
 
 import exodecorateur_angryballs.maladroit.modele.Bille;
@@ -27,14 +28,16 @@ this.billes = billes;
     @Override
     public void paint(Graphics graphics)
     {
+    	graphics = this.getBufferStrategy().getDrawGraphics();
     int i;
+   
     
-    for ( i = 0; i < this.billes.size(); ++i)
-        this.billes.get(i).dessine(graphics);
+    for ( i = 0; i < this.billes.size(); ++i) {
+         this.billes.get(i).dessine(graphics);
+    }	
     
     //System.out.println("billes dans le billard = " + billes);
     }
 
     
- 
 }

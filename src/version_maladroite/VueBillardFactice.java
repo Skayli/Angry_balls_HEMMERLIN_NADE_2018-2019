@@ -1,4 +1,4 @@
-package exodecorateur_angryballs.projet;
+package version_maladroite;
 
 import version_maladroite.vues.VueBillard;
 

@@ -1,5 +1,7 @@
 package exodecorateur_angryballs.dp_state;
 
+import java.awt.event.MouseEvent;
+
 import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.modele.ComportementBillePilotee;
 import exodecorateur_angryballs.projet.Souris;
@@ -13,13 +15,13 @@ public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 	}
 
 	@Override
-	public void traiteMousePressed() {
+	protected void traiteMousePressed(MouseEvent mouse) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void traiteMouseReleased() {
+	protected void traiteMouseReleased() {
 		bille.setEtatCourant(this.suivant);
 		System.out.println("La bille est désormais libre");
 	}
@@ -27,6 +29,6 @@ public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "état attrapée";
 	}
 }

@@ -17,6 +17,7 @@ import exodecorateur_angryballs.dp_state.EtatBillePiloteeAttrapée;
 import exodecorateur_angryballs.dp_state.EtatBillePiloteeLibre;
 import exodecorateur_angryballs.projet.Souris;
 import mesmaths.geometrie.base.Vecteur;
+import mesmaths.mecanique.MecaniquePoint;
 
 public class ComportementBillePilotee extends DecorateurBilleAcceleration implements Observer
 {
@@ -55,12 +56,11 @@ public class ComportementBillePilotee extends DecorateurBilleAcceleration implem
 		this.billeDecoree.gestionAcceleration(billes);	
 		
 		if(etatCourant == etatAttrapée) {
-			System.out.println("Position de la souris : [" + souris.position.x + " - " +  souris.position.y+"]");
-			double xSpeed = souris.position.x - this.getPosition().x;
-			double ySpeed = souris.position.y - this.getPosition().y;
-			this.getAcceleration().multiplie(0);
-			this.getAcceleration().ajoute(new Vecteur(xSpeed/12000, ySpeed/6000));	//ajout des frottements
-			this.getVitesse().multiplie(0.95);
+			Vecteur desiredDirection = Vecteur.difference(souris.position, this.getPosition());
+			desiredDirection.multiplie(0.0001);
+			this.getAcceleration().ajoute(desiredDirection);	
+			
+			this.getVitesse().multiplie(0.9);
 		}
 			
 
@@ -73,14 +73,7 @@ public class ComportementBillePilotee extends DecorateurBilleAcceleration implem
 	 * @params mouseEvent: L'évènement passé par la Classe souris observée
 	 */
 	public void update(Observable arg0, Object mouseEvent) {
-		int eventId = ((MouseEvent) mouseEvent).getID();
-		
-		if(eventId == MouseEvent.MOUSE_PRESSED) {
-			etatCourant.traiteMousePressed();
-		} else if(eventId == MouseEvent.MOUSE_RELEASED) {
-			etatCourant.traiteMouseReleased();
-		}
-		
+		etatCourant.traiteMouseEvent((MouseEvent) mouseEvent);
 	}
 	
 	public void setEtatCourant(ControleurEtatBillePilotee nouvelEtat) {

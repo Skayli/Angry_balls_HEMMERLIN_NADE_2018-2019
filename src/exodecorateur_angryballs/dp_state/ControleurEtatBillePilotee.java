@@ -1,5 +1,7 @@
 package exodecorateur_angryballs.dp_state;
 
+import java.awt.event.MouseEvent;
+
 import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.modele.ComportementBillePilotee;
 import exodecorateur_angryballs.projet.Souris;
@@ -16,8 +18,8 @@ public abstract class ControleurEtatBillePilotee {
 		this.retour = retour;
 	}
 	
-	public abstract void traiteMousePressed();
-	public abstract void traiteMouseReleased();
+	protected abstract void traiteMousePressed(MouseEvent mouse);
+	protected abstract void traiteMouseReleased();
 	
 	public abstract String toString();
 	
@@ -28,5 +30,12 @@ public abstract class ControleurEtatBillePilotee {
 	public void setRetour(ControleurEtatBillePilotee retour) {
 		this.retour = retour;
 	}
-	
+
+	public void traiteMouseEvent(MouseEvent mouse) {
+		if(mouse.getID() == MouseEvent.MOUSE_PRESSED) {
+			this.traiteMousePressed(mouse);
+		} else if(mouse.getID() == MouseEvent.MOUSE_RELEASED) {
+			this.traiteMouseReleased();
+		}
+	}
 }

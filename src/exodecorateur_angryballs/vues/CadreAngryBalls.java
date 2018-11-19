@@ -1,13 +1,17 @@
 package exodecorateur_angryballs.vues;
 
 import java.awt.*;
+import java.awt.Dialog.ModalityType;
 import java.util.Vector;
 
-import javax.swing.JPanel;
+import javax.swing.JDialog;
 
 import exodecorateur_angryballs.modele.Bille;
+import exodecorateur_angryballs.projet.EcouteurBoutonArreter;
+import exodecorateur_angryballs.projet.EcouteurBoutonLancer;
+import exodecorateur_angryballs.projet.EcouteurClavierArreter;
+import exodecorateur_angryballs.projet.EcouteurClavierLancer;
 import outilsvues.EcouteurTerminaison;
-
 import outilsvues.Outils;
 
 /**
@@ -23,8 +27,13 @@ TextField présentation;
 Billard billard;
 public Button lancerBilles, arrêterBilles;
 Panel haut, bas, centre;
+public EcouteurBoutonLancer ecouteurBoutonLancer;
+public EcouteurBoutonArreter ecouteurBoutonArreter;
+public EcouteurClavierLancer ecl;
+public EcouteurClavierArreter eca;
 
 EcouteurTerminaison ecouteurTerminaison;
+
 
 public CadreAngryBalls(String titre, String message, Vector<Bille> billes) throws HeadlessException
 {
@@ -42,13 +51,30 @@ this.centre = new Panel();
 this.add(this.centre,BorderLayout.CENTER);
 
 this.présentation = new TextField(message, 100); this.présentation.setEditable(false);
+this.présentation.setFocusable(false);
 this.haut.add(this.présentation);
 
 this.billard = new Billard(billes);
 this.add(this.billard);
 
 this.lancerBilles = new Button("lancer les billes"); this.bas.add(this.lancerBilles);
+ecouteurBoutonLancer = new EcouteurBoutonLancer();
+this.lancerBilles.addActionListener(ecouteurBoutonLancer);
+this.lancerBilles.setFocusable(false);
+
 this.arrêterBilles = new Button("arrêter les billes"); this.bas.add(this.arrêterBilles);
+ecouteurBoutonArreter = new EcouteurBoutonArreter();
+this.arrêterBilles.addActionListener(ecouteurBoutonArreter);
+this.arrêterBilles.setFocusable(false);
+
+this.ecl = new EcouteurClavierLancer();
+this.eca = new EcouteurClavierArreter();
+
+addKeyListener(ecl);
+addKeyListener(eca);
+
+setFocusable(true);
+setAlwaysOnTop(true);
 
 }
 

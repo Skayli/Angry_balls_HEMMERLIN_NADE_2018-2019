@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-
+import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
 import exodecorateur_angryballs.modele.*;
 import exodecorateur_angryballs.vues.*;
 
@@ -24,6 +24,8 @@ public static void main(String[] args)
 //------------------- création de la liste (pour l'instant vide) des billes -----------------------
 
 Vector<Bille> billes = new Vector<Bille>();
+
+//------------ création des controleurs pour les boutons de lancer et arret d'animation -------------
 
 //---------------- création de la vue responsable du dessin des billes -------------------------
 
@@ -106,15 +108,20 @@ System.out.println("billes = " + billes);
 
 AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
 
+cadre.ecouteurBoutonLancer.addObserver(animationBilles);
+cadre.ecouteurBoutonArreter.addObserver(animationBilles);
+cadre.ecl.addObserver(animationBilles);
+cadre.eca.addObserver(animationBilles);
+
 //----------------------- mise en place des écouteurs de boutons qui permettent de contrôler (un peu...) l'application -----------------
 
-EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
-EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles); 
+//EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
+//EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles); 
 
 //------------------------- activation des écouteurs des boutons et ça tourne tout seul ------------------------------
 
-cadre.lancerBilles.addActionListener(écouteurBoutonLancer);             // maladroit : à changer
-cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // maladroit : à changer
+//cadre.lancerBilles.addActionListener(écouteurBoutonLancer);             // maladroit : à changer
+//cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // maladroit : à changer
 
 
 

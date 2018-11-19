@@ -2,31 +2,23 @@ package exodecorateur_angryballs.projet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+
+import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 
  *  
  *  */
-public class EcouteurBoutonLancer implements ActionListener
+public class EcouteurBoutonLancer extends ObservableLancerAnimation implements ActionListener
 {
-AnimationBilles animationBilles;
+	public EcouteurBoutonLancer() {
 
-
-
-/**
- * @param animationsBilles
- */
-public EcouteurBoutonLancer(AnimationBilles animationBilles)
-{
-this.animationBilles = animationBilles;
-}
-
-
-
-@Override
-public void actionPerformed(ActionEvent arg0)
-{
-this.animationBilles.lancerAnimation();
-}
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		super.lancerAnimation();
+	}
 
 }

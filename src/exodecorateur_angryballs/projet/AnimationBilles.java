@@ -1,5 +1,7 @@
 package exodecorateur_angryballs.projet;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Vector;
 
 import exodecorateur_angryballs.modele.Bille;
@@ -11,7 +13,8 @@ import exodecorateur_angryballs.vues.VueBillard;
  * 
  * ICI : IL N'Y A RIEN A CHANGER
  * */
-public class AnimationBilles  implements Runnable
+@SuppressWarnings("deprecation")
+public class AnimationBilles implements Runnable, Observer
 {
 
 Vector<Bille> billes;   // la liste de toutes les billes en mouvement 
@@ -127,5 +130,17 @@ public void arrêterAnimation()
 	    this.thread.interrupt();
 	    this.thread = null;
 	    }
+}
+
+@Override
+public void update(Observable arg0, Object arg1) {
+	System.out.println(arg1);
+	String operation = (String) arg1;
+	if(operation.equals("lancer")) {
+		this.lancerAnimation();
+	} else if(operation.equals("stop")){
+		this.arrêterAnimation();
+	}
+	
 }
 }

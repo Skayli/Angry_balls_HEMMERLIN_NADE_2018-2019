@@ -1,7 +1,6 @@
 package exodecorateur_angryballs.projet;
 
 import java.awt.Color;
-import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
@@ -49,7 +48,7 @@ yMax = cadre.hauteurBillard();      // ordonnée maximale
 
 double rayon = 0.05*Math.min(xMax, yMax); // rayon des billes : ici toutes les billes ont le même rayon, mais ce n'est pas obligatoire
 
-Vecteur p0, p1, p2, p3, p4,  v0, v1, v2, v3, v4;    // les positions des centres des billes et les vecteurs vitesse au démarrage. 
+Vecteur p0, p1, p2, p3, p4, p5, v0, v1, v2, v3, v4, v5;    // les positions des centres des billes et les vecteurs vitesse au démarrage. 
                                                     // Elles vont être choisies aléatoirement
 
 Vecteur pesanteur;			// représente la pesanteur appliquée aux billes qui y sont sensibles
@@ -61,6 +60,7 @@ p1 = Vecteur.créationAléatoire(0, 0, xMax, yMax);
 p2 = Vecteur.créationAléatoire(0, 0, xMax, yMax);
 p3 = Vecteur.créationAléatoire(0, 0, xMax, yMax);
 p4 = Vecteur.créationAléatoire(0, 0, xMax, yMax);
+p5 = Vecteur.créationAléatoire(0, 0, xMax, yMax);
 
 
 //------------------- création des vecteurs vitesse des billes ---------------------------------
@@ -70,6 +70,7 @@ v1 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, 0);
 v2 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax);
 v3 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax);
 v4 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax);
+v5 = Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax);
 
 
 //------------------- Instanciation de la pesanteur --------------------------------------------
@@ -91,11 +92,11 @@ billes.add(new BilleMvtNewtonArret(p4, rayon, v4,  Color.black));
 //billes.add(new ComportementNewton(new ComportementFrottements(new BilleNormale(p2, rayon, v2, Color.green))));	// créé une bille sensible aux frottements et à l'attraction des autres
 //billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
 //billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
-//*****DANGER BILLE ROSE******\\\
-//billes.add(new ComportementArretSurLesBords(new ComportementPasseMurailles(new BilleNormale(Vecteur.créationAléatoire(0, 0, xMax, yMax), rayon, Vecteur.créationAléatoire(-vMax, -vMax, vMax, vMax), Color.pink))));
-billes.add(new ComportementBillePilotee(new ComportementPasseMurailles(new BilleNormale(p0,rayon,v0,Color.gray)),souris));
 
-//---------------------- ici finit la partie à changer -------------------------------------------------------------
+billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon*2,v5,Color.gray),souris));
+billes.add(new ComportementBillePilotee(new BilleNormale(p1,rayon,v1,Color.pink),souris));
+
+//---------------------- ici finit la partie à changer ------------------------------------------------------------
 
 
 System.out.println("billes = " + billes);
@@ -111,7 +112,6 @@ EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBi
 EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles); 
 
 //------------------------- activation des écouteurs des boutons et ça tourne tout seul ------------------------------
-
 
 cadre.lancerBilles.addActionListener(écouteurBoutonLancer);             // maladroit : à changer
 cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);           // maladroit : à changer

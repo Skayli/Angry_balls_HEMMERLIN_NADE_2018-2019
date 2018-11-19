@@ -14,11 +14,9 @@ import exodecorateur_angryballs.vues.VueBillard;
 public class AnimationBilles  implements Runnable
 {
 
-
 Vector<Bille> billes;   // la liste de toutes les billes en mouvement 
 VueBillard vueBillard;    // la vue responsable du dessin des billes
 private Thread thread;    // pour lancer et arrêter les billes
-
 
 private static final double COEFF = 0.5;
 

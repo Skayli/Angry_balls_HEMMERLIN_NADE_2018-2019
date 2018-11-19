@@ -21,6 +21,7 @@ import mesmaths.mecanique.MecaniquePoint;
 
 public class ComportementBillePilotee extends DecorateurBilleAcceleration implements Observer
 {
+	private static final double COEFF = 10;
 	Souris souris;
 	ControleurEtatBillePilotee etatCourant;
 	EtatBillePiloteeAttrapée etatAttrapée;
@@ -57,8 +58,8 @@ public class ComportementBillePilotee extends DecorateurBilleAcceleration implem
 		
 		if(etatCourant == etatAttrapée) {
 			Vecteur desiredDirection = Vecteur.difference(souris.position, this.getPosition());
-			desiredDirection.multiplie(0.0001);
-			this.getAcceleration().ajoute(desiredDirection);	
+			desiredDirection.multiplie(COEFF);
+			this.getAcceleration().ajoute(desiredDirection.produit(1/this.masse()));	
 			
 			this.getVitesse().multiplie(0.9);
 		}

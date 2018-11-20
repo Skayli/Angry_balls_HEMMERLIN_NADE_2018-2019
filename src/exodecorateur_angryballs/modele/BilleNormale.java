@@ -9,7 +9,7 @@ import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 
-public class BilleNormale extends Bille
+public class BilleNormale implements Bille
 {
 	
 	public  Vecteur position;   // centre de la bille

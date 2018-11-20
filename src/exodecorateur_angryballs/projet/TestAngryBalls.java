@@ -7,6 +7,8 @@ import mesmaths.geometrie.base.Vecteur;
 import exodecorateur_angryballs.controlerAnimation.ObserverArretAnimation;
 import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 import exodecorateur_angryballs.modele.*;
+import exodecorateur_angryballs.sound.ObserverCollision;
+import exodecorateur_angryballs.sound.SoundManager;
 import exodecorateur_angryballs.vues.*;
 
 /**
@@ -90,9 +92,9 @@ public class TestAngryBalls {
 		//-------------------- Nouvelle définition utilisant le DP décorateur -----------------
 		billes.add(new BilleNormale(p0,rayon, v0, Color.red));	//créé une bille avec mouvement RU et rebond sur les parois
 		billes.add(new ComportementPesanteur(new ComportementFrottements(new BilleNormale(p1, rayon, v1, Color.yellow))));	//créé une bille sensible à la pesanteur et aux frottements
-		billes.add(new ComportementNewton(new ComportementFrottements(new BilleNormale(p2, rayon, v2, Color.green))));	// créé une bille sensible aux frottements et à l'attraction des autres
-		billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
-		billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
+//		billes.add(new ComportementNewton(new ComportementFrottements(new BilleNormale(p2, rayon, v2, Color.green))));	// créé une bille sensible aux frottements et à l'attraction des autres
+//		billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
+//		billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
 		
 		//-------------------- Nouvelle bille avec le comportement "pilotée" --------
 		billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon,v5,Color.gray),souris));
@@ -115,7 +117,14 @@ public class TestAngryBalls {
 		cadre.ecouteurBoutonArreter.addObserver(arret);
 		cadre.ecl.addObserver(lancer);
 		cadre.eca.addObserver(arret);
-	
+		
+		
+		// --------------- Creation de l'observer de collision des billes
+		ObserverCollision oc = new ObserverCollision();
+		for(Bille bille : billes) {
+			bille.addObserver(oc);
+		}
+		
 	}
 
 }

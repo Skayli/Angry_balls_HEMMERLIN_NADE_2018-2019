@@ -273,6 +273,8 @@ v1N = v1.produitScalaire(N);
 v2N = v2.produitScalaire(N);
 
 double a = v1N - v2N;
+
+
    
 if (a <= 0) return false;       // les billes séloignent l'une de l'autre, la collision a donc déjà été traitée
 

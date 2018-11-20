@@ -22,4 +22,5 @@ public abstract class DecorateurBilleCollision extends DecorateurBille
 	{
 		this.billeDecoree.gestionAcceleration(billes);
 	}
+	
 }

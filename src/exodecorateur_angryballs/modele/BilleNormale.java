@@ -4,12 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
+import exodecorateur_angryballs.sound.SoundManager;
 import mesmaths.cinematique.Cinematique;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 
-public class BilleNormale implements Bille
+public class BilleNormale extends Bille
 {
 	
 	public  Vecteur position;   // centre de la bille
@@ -176,8 +177,16 @@ public class BilleNormale implements Bille
 
 	@Override
 	public boolean gestionCollisionBilleBille(Vector<Bille> billes)
-	{
-		return OutilsBille.gestionCollisionBilleBille(this, billes);
+	{	
+		if(OutilsBille.gestionCollisionBilleBille(this, billes)) {
+			setChanged();
+			notifyObservers(this.getClef());
+			
+			return true;
+		}
+		
+		return false;
+//		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}
 
 }

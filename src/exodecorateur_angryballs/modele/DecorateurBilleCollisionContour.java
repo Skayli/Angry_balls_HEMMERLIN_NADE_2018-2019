@@ -23,4 +23,6 @@ public abstract class DecorateurBilleCollisionContour extends DecorateurBilleCol
 	{
 		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}
+
+
 }

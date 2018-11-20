@@ -10,6 +10,8 @@ public abstract class DecorateurBilleAcceleration extends DecorateurBille
 		super(billeDecoree);
 	}
 
+	
+
 	/**
 	 * 
 	 * @see exodecodeur_angryballs.modele.Bille#gestionCollisionBilleBille(Vector<Bille> billes)
@@ -37,4 +39,5 @@ public abstract class DecorateurBilleAcceleration extends DecorateurBille
 	{
 		this.billeDecoree.collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
 	}
+
 }

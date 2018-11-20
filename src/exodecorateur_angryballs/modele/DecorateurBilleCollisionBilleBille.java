@@ -1,5 +1,7 @@
 package exodecorateur_angryballs.modele;
 
+import java.util.Vector;
+
 public abstract class DecorateurBilleCollisionBilleBille extends DecorateurBilleCollision
 {
 
@@ -10,7 +12,7 @@ public abstract class DecorateurBilleCollisionBilleBille extends DecorateurBille
 
 	/**
 	 * 
-	 * @see exodecorateur_angryballs.modele.DecorateurBilleCollision#collisionContour(double, double, double, double)
+	 * @see exodecorateur_angryballs.modele.DecorateurBIlleAcceleration#collisionContour(double, double, double, double)
 	 * 
 	 * Cette classe du décorateur ne modifie pas la gestion des collisions bille/contour
 	 * Il utilise la gestion des collisions avec le contour de l'objet décoré
@@ -20,5 +22,6 @@ public abstract class DecorateurBilleCollisionBilleBille extends DecorateurBille
 	{
 		this.billeDecoree.collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
 	}
+	
 
 }

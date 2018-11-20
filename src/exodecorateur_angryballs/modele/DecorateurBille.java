@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import mesmaths.geometrie.base.Vecteur;
 
-public abstract class DecorateurBille implements Bille
+public abstract class DecorateurBille extends Bille
 {
 	protected Bille billeDecoree;
 	

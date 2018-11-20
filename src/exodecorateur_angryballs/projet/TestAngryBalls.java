@@ -7,7 +7,6 @@ import mesmaths.geometrie.base.Vecteur;
 import exodecorateur_angryballs.controlerAnimation.ObserverArretAnimation;
 import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 import exodecorateur_angryballs.modele.*;
-import exodecorateur_angryballs.sound.ObserverCollision;
 import exodecorateur_angryballs.sound.SoundManager;
 import exodecorateur_angryballs.vues.*;
 
@@ -97,7 +96,8 @@ public class TestAngryBalls {
 //		billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
 		
 		//-------------------- Nouvelle bille avec le comportement "pilotée" --------
-		billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon,v5,Color.gray),souris));
+		Bille s = new ComportementBillePilotee(new BilleNormale(p5,rayon,v5,Color.gray),souris);
+		billes.add(s);
 		//billes.add(new ComportementBillePilotee(new BilleNormale(p1,rayon,v1,Color.pink),souris));
 		
 		//---------------------- ici finit la partie à changer ------------------------------------------------------------
@@ -116,15 +116,7 @@ public class TestAngryBalls {
 		cadre.ecouteurBoutonLancer.addObserver(lancer);
 		cadre.ecouteurBoutonArreter.addObserver(arret);
 		cadre.ecl.addObserver(lancer);
-		cadre.eca.addObserver(arret);
-		
-		
-		// --------------- Creation de l'observer de collision des billes
-		ObserverCollision oc = new ObserverCollision();
-		for(Bille bille : billes) {
-			bille.addObserver(oc);
-		}
-		
+		cadre.eca.addObserver(arret);	
 	}
 
 }

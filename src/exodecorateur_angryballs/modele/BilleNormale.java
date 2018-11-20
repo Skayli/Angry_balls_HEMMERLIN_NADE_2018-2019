@@ -178,15 +178,7 @@ public class BilleNormale extends Bille
 	@Override
 	public boolean gestionCollisionBilleBille(Vector<Bille> billes)
 	{	
-		if(OutilsBille.gestionCollisionBilleBille(this, billes)) {
-			setChanged();
-			notifyObservers(this.getClef());
-			
-			return true;
-		}
-		
-		return false;
-//		return OutilsBille.gestionCollisionBilleBille(this, billes);
+		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}
 
 }

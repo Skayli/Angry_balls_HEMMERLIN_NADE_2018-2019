@@ -7,6 +7,8 @@ import java.io.IOException;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -26,7 +28,7 @@ public class SoundManager {
 		return singleton;
 	}
 	
-	public void playSound() {
+	public void playShockSound(double intensite) {
 		
 		try {
 			//File fichier;
@@ -47,31 +49,17 @@ public class SoundManager {
 			audioInputStream = AudioSystem.getAudioInputStream(f1);
 			AudioFormat format= audioInputStream.getFormat();
 			
-//			System.out.println(" format du fichier son : "+format);
-//			System.out.println(" nombre de canaux : "+format.getChannels());
-//
-//			System.out.println(" nombre de frames par seconde : "+format.getFrameRate());
-//
-//			System.out.println(" taille d'un frame en octets : "+format.getFrameSize());
-//
-//			System.out.println(" fréquence d'échantillonnage : "+format.getSampleRate());
-//
-//			System.out.println(" taille d'un échantillon en bits : "+format.getSampleSizeInBits());
-
-			/*
-			DataLine.Info info;
-			        
-			info = new DataLine.Info(SourceDataLine.class, format);
-			*/
 			SourceDataLine ligne;
 
 			ligne = AudioSystem.getSourceDataLine(format);
-
-//			System.out.println("réquisition de la ligne  réussie !!!");
-
 			ligne.open(format);
-//			System.out.println("ouverture de la ligne  réussie !!!");
 
+			// Controle du volume
+		    FloatControl gainControl = 	(FloatControl)	ligne.getControl(FloatControl.Type.MASTER_GAIN);
+		    double gain = intensite; 
+		    float dB = Math.min(6, (float) (Math.log(gain) / Math.log(10.0) * 20.0)); //Volume max = 6
+		    System.out.println("Volume : " + dB);
+		    gainControl.setValue(dB);
 
 			int tailleFrame;
 
@@ -88,7 +76,6 @@ public class SoundManager {
 			byte[] tampon = new byte[tailleTampon]; // la taille du tampon doit être un multiple de la taille d'un frame
 			// correspond à une 1/100 de seconde de son
 
-
 			ligne.start(); // détail à la con à ne pas oublier
 
 
@@ -102,6 +89,9 @@ public class SoundManager {
 			q = l/m; //nbre de passages à faire
 			r = l%m; // nbre de frames qu'il restera à lire après la boucle
 			int reste; // nbre d'octets restant à lire après la boucle
+			
+			 
+			
 
 			reste = (int)(r*tailleFrame);
 			long p;

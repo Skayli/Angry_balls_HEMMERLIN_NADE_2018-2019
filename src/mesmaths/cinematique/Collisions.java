@@ -4,6 +4,7 @@ package mesmaths.cinematique;
 import java.io.IOException;
 import java.util.Vector;
 
+import exodecorateur_angryballs.sound.SoundManager;
 import mesmaths.MesMaths;
 import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
@@ -279,6 +280,10 @@ double a = v1N - v2N;
 if (a <= 0) return false;       // les billes séloignent l'une de l'autre, la collision a donc déjà été traitée
 
 // à présent a > 0. a représente l'intensité du choc entre les 2 billes !!!!
+
+// Jouons le son de collision en fonction de l'intensité du choc représenté par a
+
+SoundManager.getInstance().playShockSound(a);
 
 // calculons les nouveaux vecteurs vitesse immédiatement après le choc
 

@@ -2,6 +2,7 @@ package exodecorateur_angryballs.modele;
 
 import java.util.Vector;
 
+import exodecorateur_angryballs.sound.SoundManager;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;
@@ -69,11 +70,14 @@ Bille billeCourante;
 int i;
 
 for ( i = 0 ; i < autresBilles.size(); ++i)
-    {
+	{
     billeCourante = autresBilles.get(i);
-    if (Collisions.CollisionBilleBille(    bille.getPosition(),    bille.getRayon(),    bille.getVitesse(),    bille.masse(), 
-                                        billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse()))
-       return true; 
+    if (Collisions.CollisionBilleBille(bille.getPosition(), bille.getRayon(), bille.getVitesse(), bille.masse(), billeCourante.getPosition(), billeCourante.getRayon(), billeCourante.getVitesse(), billeCourante.masse()))
+    	{
+    		
+    		return true;
+    	}
+    
     }
 return false;
 }

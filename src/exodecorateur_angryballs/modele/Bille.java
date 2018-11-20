@@ -4,6 +4,9 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Vector;
 
+import mesmaths.cinematique.Cinematique;
+import mesmaths.cinematique.Collisions;
+import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 
 
@@ -14,7 +17,7 @@ import mesmaths.geometrie.base.Vecteur;
  *  
  * 
  * */
-public abstract class Bille extends Observable
+public abstract class Bille
 {
 //----------------- classe Bille-------------------------------------
 	public Bille(){}
@@ -66,7 +69,8 @@ public abstract class Bille extends Observable
 	/**
 	 * gestion de la collision entre une bille et un contour du billard
 	 */
-	public abstract void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur); 
+	public abstract void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur);
+	
 //----------------- classe Bille -------------------------------------
 
 }

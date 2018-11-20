@@ -58,4 +58,10 @@ public abstract class DecorateurBille extends Bille
 	{
 		this.billeDecoree.deplacer(deltaT);
 	}
+	
+	public String toString() 
+	{
+	    return this.billeDecoree.toString();
+	}
+	
 }

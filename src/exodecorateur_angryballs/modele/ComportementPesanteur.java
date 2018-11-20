@@ -25,7 +25,7 @@ public class ComportementPesanteur extends DecorateurBilleAcceleration
 	public void gestionAcceleration(Vector<Bille> billes)
 	{
 		this.billeDecoree.gestionAcceleration(billes);	//appel récursif
-		this.getAcceleration().ajoute(this.pesanteur);  //ajout de la pesanteur
+		this.getAcceleration().ajoute(ComportementPesanteur.pesanteur);  //ajout de la pesanteur
 	}
 	
 	public static void setPesanteur(Vecteur pesanteur)

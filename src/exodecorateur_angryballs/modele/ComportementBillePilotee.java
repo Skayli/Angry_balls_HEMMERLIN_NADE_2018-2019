@@ -1,6 +1,5 @@
 package exodecorateur_angryballs.modele;
 
-import java.awt.AWTEvent;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
@@ -17,8 +16,8 @@ import exodecorateur_angryballs.dp_state.EtatBillePiloteeAttrapée;
 import exodecorateur_angryballs.dp_state.EtatBillePiloteeLibre;
 import exodecorateur_angryballs.projet.Souris;
 import mesmaths.geometrie.base.Vecteur;
-import mesmaths.mecanique.MecaniquePoint;
 
+@SuppressWarnings("deprecation")
 public class ComportementBillePilotee extends DecorateurBilleAcceleration implements Observer
 {
 	private static final double COEFF = 10;

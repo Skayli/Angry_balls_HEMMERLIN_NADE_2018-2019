@@ -1,7 +1,6 @@
 package exodecorateur_angryballs.modele;
 
 import java.awt.Graphics;
-import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
 

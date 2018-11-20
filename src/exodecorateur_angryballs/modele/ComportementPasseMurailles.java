@@ -1,7 +1,5 @@
 package exodecorateur_angryballs.modele;
 
-import java.util.Vector;
-
 import mesmaths.cinematique.Collisions;
 
 public class ComportementPasseMurailles extends DecorateurBilleCollisionContour

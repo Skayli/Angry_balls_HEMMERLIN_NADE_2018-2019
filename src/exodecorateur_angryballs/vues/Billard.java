@@ -1,6 +1,5 @@
 package exodecorateur_angryballs.vues;
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
@@ -21,6 +20,7 @@ import exodecorateur_angryballs.modele.Bille;
  *  	=> 2 lignes ajoutées dans le constructeur et 1 au debut de la fonction pain(Graphics)
  * 
  * */
+@SuppressWarnings("serial")
 public class Billard extends JPanel
 {
 	Vector<Bille> billes;

@@ -1,10 +1,7 @@
 package exodecorateur_angryballs.vues;
 
 import java.awt.*;
-import java.awt.Dialog.ModalityType;
 import java.util.Vector;
-
-import javax.swing.JDialog;
 
 import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.projet.EcouteurBoutonArreter;
@@ -21,6 +18,7 @@ import outilsvues.Outils;
  *  
  * 
  * */
+@SuppressWarnings("serial")
 public class CadreAngryBalls extends Frame implements VueBillard
 {
 TextField présentation;

@@ -1,7 +1,5 @@
 package exodecorateur_angryballs.modele;
 
-import java.util.Vector;
-
 public abstract class DecorateurBilleCollisionBilleBille extends DecorateurBilleCollision
 {
 

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
 import exodecorateur_angryballs.modele.*;
 import exodecorateur_angryballs.vues.*;
 
@@ -19,6 +18,7 @@ public class TestAngryBalls
 /**
  * @param args
  */
+@SuppressWarnings("deprecation")
 public static void main(String[] args)
 {
 //------------------- création de la liste (pour l'instant vide) des billes -----------------------

@@ -41,17 +41,17 @@ public class Souris extends Observable implements MouseListener, MouseMotionList
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		updateCurrentPosition(e);
 		this.setChanged();
 		this.notifyObservers(e);
-		updateCurrentPosition(e);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
+		updateCurrentPosition(e);
 		this.setChanged();
 		this.notifyObservers(e);
-		updateCurrentPosition(e);
 	}
 
 	@Override

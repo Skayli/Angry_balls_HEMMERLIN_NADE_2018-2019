@@ -18,12 +18,13 @@ public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 	protected void traiteMousePressed(MouseEvent mouse) {
 		// TODO Auto-generated method stub
 		
+		// Rien à faire quand on clique dans l'état "attrapée"
 	}
 
 	@Override
 	protected void traiteMouseReleased() {
+		// Il suffit de changer l'état de la bille à "libre"
 		bille.setEtatCourant(this.suivant);
-		System.out.println("La bille est désormais libre");
 	}
 
 	@Override

@@ -95,7 +95,7 @@ billes.add(new BilleMvtNewtonArret(p4, rayon, v4,  Color.black));
 //billes.add(new ComportementPasseMurailles(new BilleNormale(p3, rayon, v3, Color.cyan))); // créé une bille passe murailles
 //billes.add(new ComportementNewton(new ComportementArretSurLesBords(new BilleNormale(p4, rayon, v4, Color.black)))); // créé une bille attirée par les autres et qui s'arrête sur les murs
 
-billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon*2,v5,Color.gray),souris));
+//billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon*2,v5,Color.gray),souris));
 billes.add(new ComportementBillePilotee(new BilleNormale(p1,rayon,v1,Color.pink),souris));
 
 //---------------------- ici finit la partie à changer ------------------------------------------------------------

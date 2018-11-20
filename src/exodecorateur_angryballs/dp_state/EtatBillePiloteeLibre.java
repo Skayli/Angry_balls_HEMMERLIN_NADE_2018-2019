@@ -18,14 +18,14 @@ public class EtatBillePiloteeLibre extends ControleurEtatBillePilotee {
 	protected void traiteMousePressed(MouseEvent mouse) {
 		
 		// Calcul de la distance entre la souris et le centre de la bille pour savoir si on a bien cliqué sur la bille
-		double dist = Math.sqrt(Math.pow( (mouse.getX() - bille.getPosition().x) + (mouse.getY() - bille.getPosition().y), 2) );
+		double dist = Math.sqrt(Math.pow( (mouse.getX() - bille.getPosition().x),2) + Math.pow((mouse.getY() - bille.getPosition().y), 2) );
 		
 		if(dist <= bille.getRayon()) {
 			// On a cliqué sur la bille, elle était libre, maintenant elle est attrapée
 			this.bille.setEtatCourant(this.suivant);
-			System.out.println("maintenant la bille suit la souris");
+
 		} else {
-			System.out.println("cliqué à coté");
+			// Rien a faire : on a cliqué à côté de la bille
 		}
 		
 	}
@@ -34,6 +34,7 @@ public class EtatBillePiloteeLibre extends ControleurEtatBillePilotee {
 	protected void traiteMouseReleased() {
 		// TODO Auto-generated method stub
 				
+		// Rien à faire quand on relache la souris dans l'état "libre"
 	}
 
 	@Override

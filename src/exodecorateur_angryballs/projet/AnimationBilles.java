@@ -134,7 +134,7 @@ public void arrêterAnimation()
 
 @Override
 public void update(Observable arg0, Object arg1) {
-	System.out.println(arg1);
+//	System.out.println(arg1);
 	String operation = (String) arg1;
 	if(operation.equals("lancer")) {
 		this.lancerAnimation();

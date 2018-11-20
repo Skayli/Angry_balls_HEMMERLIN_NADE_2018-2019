@@ -2,8 +2,9 @@ package exodecorateur_angryballs.projet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
 
-import exodecorateur_angryballs.controlerAnimation.ObservableArreterAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverArretAnimation;
 
 
 /**
@@ -11,7 +12,7 @@ import exodecorateur_angryballs.controlerAnimation.ObservableArreterAnimation;
  *  
  *  */
 
-public class EcouteurBoutonArreter extends ObservableArreterAnimation implements ActionListener {
+public class EcouteurBoutonArreter extends Observable implements ActionListener {
 	
 	public EcouteurBoutonArreter() {
 		
@@ -19,7 +20,8 @@ public class EcouteurBoutonArreter extends ObservableArreterAnimation implements
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		super.arreterAnimation();
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 }

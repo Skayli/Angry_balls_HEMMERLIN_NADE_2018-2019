@@ -2,11 +2,12 @@ package exodecorateur_angryballs.projet;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observable;
 
-import exodecorateur_angryballs.controlerAnimation.ObservableArreterAnimation;
-import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverArretAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 
-public class EcouteurClavierArreter extends ObservableArreterAnimation implements KeyListener {
+public class EcouteurClavierArreter extends Observable implements KeyListener {
 
 	public EcouteurClavierArreter() {
 		
@@ -16,7 +17,8 @@ public class EcouteurClavierArreter extends ObservableArreterAnimation implement
 	public void keyPressed(KeyEvent key) {
 		// TODO Auto-generated method stub
 		if(key.getKeyChar() == 'a') {
-			super.arreterAnimation();
+			this.setChanged();
+			this.notifyObservers();
 		}
 	}
 

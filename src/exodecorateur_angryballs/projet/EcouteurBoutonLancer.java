@@ -4,13 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 
-import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 
  *  
  *  */
-public class EcouteurBoutonLancer extends ObservableLancerAnimation implements ActionListener
+public class EcouteurBoutonLancer extends Observable implements ActionListener
 {
 	public EcouteurBoutonLancer() {
 
@@ -18,7 +18,8 @@ public class EcouteurBoutonLancer extends ObservableLancerAnimation implements A
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		super.lancerAnimation();
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 }

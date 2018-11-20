@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
+import exodecorateur_angryballs.controlerAnimation.ObserverArretAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 import exodecorateur_angryballs.modele.*;
 import exodecorateur_angryballs.vues.*;
 
@@ -107,11 +109,20 @@ System.out.println("billes = " + billes);
 //-------------------- création de l'objet responsable de l'animation (c'est un thread séparé) -----------------------
 
 AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
+//
+//cadre.ecouteurBoutonLancer.addObserver(animationBilles);
+//cadre.ecouteurBoutonArreter.addObserver(animationBilles);
+//cadre.ecl.addObserver(animationBilles);
+//cadre.eca.addObserver(animationBilles);
 
-cadre.ecouteurBoutonLancer.addObserver(animationBilles);
-cadre.ecouteurBoutonArreter.addObserver(animationBilles);
-cadre.ecl.addObserver(animationBilles);
-cadre.eca.addObserver(animationBilles);
+ObserverLancerAnimation lancer = new ObserverLancerAnimation(animationBilles);
+ObserverArretAnimation arret = new ObserverArretAnimation(animationBilles);
+
+cadre.ecouteurBoutonLancer.addObserver(lancer);
+cadre.ecouteurBoutonArreter.addObserver(arret);
+cadre.ecl.addObserver(lancer);
+cadre.eca.addObserver(arret);
+
 
 //----------------------- mise en place des écouteurs de boutons qui permettent de contrôler (un peu...) l'application -----------------
 

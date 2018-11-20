@@ -2,11 +2,12 @@ package exodecorateur_angryballs.projet;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observable;
 
-import exodecorateur_angryballs.controlerAnimation.ObservableLancerAnimation;
+import exodecorateur_angryballs.controlerAnimation.ObserverLancerAnimation;
 import javafx.scene.input.KeyCode;
 
-public class EcouteurClavierLancer extends ObservableLancerAnimation implements KeyListener {
+public class EcouteurClavierLancer extends Observable implements KeyListener {
 	
 	public EcouteurClavierLancer() {
 		
@@ -16,7 +17,8 @@ public class EcouteurClavierLancer extends ObservableLancerAnimation implements 
 	public void keyPressed(KeyEvent key) {
 		// TODO Auto-generated method stub
 		if(key.getKeyChar() == 'l') {
-			super.lancerAnimation();
+			this.setChanged();
+			this.notifyObservers();
 		}
 		
 	}

@@ -7,6 +7,8 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import exodecorateur_angryballs.modele.Bille;
+import exodecorateur_angryballs.visitor.Dessinateur;
+import exodecorateur_angryballs.visitor.DessinateurAWT;
 
 
 /**
@@ -24,23 +26,28 @@ import exodecorateur_angryballs.modele.Bille;
 public class Billard extends JPanel
 {
 	Vector<Bille> billes;
+	Dessinateur d;
 	
     public Billard(Vector<Bille> billes) {
     	this.billes = billes;
     	this.setDoubleBuffered(true);
-    	this.setBackground(Color.WHITE);
+    	this.setBackground(Color.WHITE);    	
     }
+
     
     /* (non-Javadoc)
      * @see java.awt.Canvas#paint(java.awt.Graphics)
      */
     public void paint(Graphics graphics) {
     	super.paint(graphics);
+    	d = new DessinateurAWT(graphics);
+    	
     	int i;
-    	for ( i = 0; i < this.billes.size(); ++i)
-    		this.billes.get(i).dessine(graphics);
-    
+    	for ( i = 0; i < this.billes.size(); ++i) {
+//    		this.billes.get(i).dessine(graphics);
+    		this.billes.get(i).dessine(d);
+    		
+    	}
     	//System.out.println("billes dans le billard = " + billes);
     }
- 
 }

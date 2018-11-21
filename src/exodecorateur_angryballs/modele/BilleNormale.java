@@ -1,10 +1,9 @@
 package exodecorateur_angryballs.modele;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.util.Vector;
 
-import exodecorateur_angryballs.sound.SoundManager;
+import exodecorateur_angryballs.visitor.Dessinateur;
 import mesmaths.cinematique.Cinematique;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Geop;
@@ -19,7 +18,7 @@ public class BilleNormale extends Bille
 	public  Vecteur acceleration;
 	public int clef;                // identifiant unique de cette bille
 	
-	private Color couleur;
+	private Couleur couleur;
 	
 	private static int prochaineClef = 0;
 
@@ -34,7 +33,7 @@ public class BilleNormale extends Bille
 	 * @param couleur
 	 */
 	
-	public BilleNormale (Vecteur centre, double rayon, Vecteur vitesse, Vecteur acceleration, Color couleur)
+	public BilleNormale (Vecteur centre, double rayon, Vecteur vitesse, Vecteur acceleration, Couleur couleur)
 	{
 		this.position = centre;
 		this.rayon = rayon;
@@ -50,7 +49,7 @@ public class BilleNormale extends Bille
 	 * @param vitesse
 	 * @param couleur
 	 */
-	public BilleNormale(Vecteur position, double rayon, Vecteur vitesse, Color couleur)
+	public BilleNormale(Vecteur position, double rayon, Vecteur vitesse, Couleur couleur)
 	{
 	this(position,rayon,vitesse,new Vecteur(),couleur);
 	}
@@ -129,21 +128,25 @@ public class BilleNormale extends Bille
 		Cinematique.mouvementUniformémentAccéléré( this.getPosition(), this.getVitesse(), this.getAcceleration(), deltaT);
 	}
 	
-	public void dessine (Graphics g)
-    {
-	    int width, height;
-	    int xMin, yMin;
-	    
-	    xMin = (int)Math.round(position.x-rayon);
-	    yMin = (int)Math.round(position.y-rayon);
+//	public void dessine (Graphics g)
+//    {
+//	    int width, height;
+//	    int xMin, yMin;
+//	    
+//	    xMin = (int)Math.round(position.x-rayon);
+//	    yMin = (int)Math.round(position.y-rayon);
+//	
+//	    width = height = 2*(int)Math.round(rayon); 
+//	
+//	    g.setColor(couleur);
+//	    g.fillOval( xMin, yMin, width, height);
+//	    g.setColor(Color.CYAN);
+//	    g.drawOval(xMin, yMin, width, height);
+//    }
 	
-	    width = height = 2*(int)Math.round(rayon); 
-	
-	    g.setColor(couleur);
-	    g.fillOval( xMin, yMin, width, height);
-	    g.setColor(Color.CYAN);
-	    g.drawOval(xMin, yMin, width, height);
-    }
+	public void dessine(Dessinateur d) {
+		d.dessine(this);
+	}
 
 
 	public String toString() 
@@ -179,6 +182,12 @@ public class BilleNormale extends Bille
 	public boolean gestionCollisionBilleBille(Vector<Bille> billes)
 	{	
 		return OutilsBille.gestionCollisionBilleBille(this, billes);
+	}
+
+	@Override
+	public Couleur getColor() {
+		// TODO Auto-generated method stub
+		return couleur;
 	}
 
 }

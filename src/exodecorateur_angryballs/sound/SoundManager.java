@@ -39,11 +39,6 @@ public class SoundManager {
 			ici = new File(père.getAbsoluteFile(),"musique");
 			f1 = new File(ici.getAbsoluteFile(),"bille_bille.wav");
 
-//			System.err.println("père = "+père.getAbsolutePath());
-//			System.err.println("ici = "+ici.getAbsolutePath());
-//
-//			System.err.println("f1 = "+f1.getAbsolutePath());
-
 			AudioInputStream audioInputStream;
 			
 			audioInputStream = AudioSystem.getAudioInputStream(f1);
@@ -57,7 +52,8 @@ public class SoundManager {
 			// Controle du volume
 		    FloatControl gainControl = 	(FloatControl)	ligne.getControl(FloatControl.Type.MASTER_GAIN);
 		    double gain = intensite; 
-		    float dB = Math.min(6, (float) (Math.log(gain) / Math.log(10.0) * 30.0)); //Volume max = 6
+		    float dB = (float) (Math.log(gain) / Math.log(10.0) * 30.0);
+		    dB = Math.min(6, Math.max(-80, dB)); // -80 < dB < 6  
 		    System.out.println("Volume : " + dB);
 		    gainControl.setValue(dB);
 

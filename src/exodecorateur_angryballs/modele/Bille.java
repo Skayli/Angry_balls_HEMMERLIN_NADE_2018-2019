@@ -1,12 +1,8 @@
 package exodecorateur_angryballs.modele;
 
-import java.awt.*;
-import java.util.Observable;
 import java.util.Vector;
 
-import mesmaths.cinematique.Cinematique;
-import mesmaths.cinematique.Collisions;
-import mesmaths.geometrie.base.Geop;
+import exodecorateur_angryballs.visitor.Dessinateur;
 import mesmaths.geometrie.base.Vecteur;
 
 
@@ -22,23 +18,21 @@ public abstract class Bille
 //----------------- classe Bille-------------------------------------
 	public Bille(){}
 
-
-	abstract Vecteur getPosition();
-
+	public abstract Vecteur getPosition();
 
 	abstract double masse();
 
-
 	public abstract double getRayon();
-
 
 	public abstract Vecteur getVitesse();
 
-
 	abstract int getClef();
 	
+	public abstract Couleur getColor();
 	
-	public abstract void dessine(Graphics g);
+	
+//	public abstract void dessine(Graphics g);
+	public abstract void dessine(Dessinateur d);
 
 	public abstract void deplacer(double deltaT);
 	

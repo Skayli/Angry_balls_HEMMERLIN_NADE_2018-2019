@@ -8,6 +8,7 @@ import exodecorateur_angryballs.projet.EcouteurBoutonArreter;
 import exodecorateur_angryballs.projet.EcouteurBoutonLancer;
 import exodecorateur_angryballs.projet.EcouteurClavierArreter;
 import exodecorateur_angryballs.projet.EcouteurClavierLancer;
+import exodecorateur_angryballs.visitor.DessinateurAWT;
 import outilsvues.EcouteurTerminaison;
 import outilsvues.Outils;
 
@@ -91,6 +92,8 @@ public void miseAJour()
 {
 this.billard.repaint();
 }
+
+
 
 /* (non-Javadoc)
  * @see exodecorateur.vues.VueBillard#montrer()

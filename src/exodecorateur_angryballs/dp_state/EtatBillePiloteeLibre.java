@@ -6,6 +6,7 @@ import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.modele.ComportementBillePilotee;
 import exodecorateur_angryballs.projet.Souris;
 import exodecorateur_angryballs.vues.CadreAngryBalls;
+import mesmaths.geometrie.base.Vecteur;
 
 public class EtatBillePiloteeLibre extends ControleurEtatBillePilotee {
 
@@ -15,10 +16,10 @@ public class EtatBillePiloteeLibre extends ControleurEtatBillePilotee {
 	}
 
 	@Override
-	protected void traiteMousePressed(MouseEvent mouse) {
+	protected void traiteMousePressed(Vecteur mousePosition) {
 		
 		// Calcul de la distance entre la souris et le centre de la bille pour savoir si on a bien cliqué sur la bille
-		double dist = Math.sqrt(Math.pow( (mouse.getX() - bille.getPosition().x),2) + Math.pow((mouse.getY() - bille.getPosition().y), 2) );
+		double dist = Math.sqrt(Math.pow( (mousePosition.x - bille.getPosition().x),2) + Math.pow((mousePosition.y - bille.getPosition().y), 2) );
 		
 		if(dist <= bille.getRayon()) {
 			// On a cliqué sur la bille, elle était libre, maintenant elle est attrapée

@@ -6,6 +6,7 @@ import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.modele.ComportementBillePilotee;
 import exodecorateur_angryballs.projet.Souris;
 import exodecorateur_angryballs.vues.CadreAngryBalls;
+import mesmaths.geometrie.base.Vecteur;
 
 public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 	
@@ -15,7 +16,7 @@ public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 	}
 
 	@Override
-	protected void traiteMousePressed(MouseEvent mouse) {
+	protected void traiteMousePressed(Vecteur mousePosition) {
 		// TODO Auto-generated method stub
 		
 		// Rien à faire quand on clique dans l'état "attrapée"
@@ -23,6 +24,7 @@ public class EtatBillePiloteeAttrapée extends ControleurEtatBillePilotee {
 
 	@Override
 	protected void traiteMouseReleased() {
+		// On relache une bille attrapée
 		// Il suffit de changer l'état de la bille à "libre"
 		bille.setEtatCourant(this.suivant);
 	}

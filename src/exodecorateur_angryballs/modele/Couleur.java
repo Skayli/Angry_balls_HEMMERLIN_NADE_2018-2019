@@ -58,11 +58,11 @@ public class Couleur {
 	}
 	
 	public static Couleur black() {
-		return new Couleur(255, 255, 255);
+		return new Couleur(0, 0, 0);
 	}
 	
 	public static Couleur white() {
-		return new Couleur(0, 0, 0);
+		return new Couleur(255, 255, 255);
 	}
 	
 	public static Couleur orange() {

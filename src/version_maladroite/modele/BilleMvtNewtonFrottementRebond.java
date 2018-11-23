@@ -3,7 +3,6 @@ package version_maladroite.modele;
 import java.awt.Color;
 import java.util.Vector;
 
-import exodecorateur_angryballs.modele.OutilsBille;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;

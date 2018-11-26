@@ -7,7 +7,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import exodecorateur_angryballs.modele.Bille;
-import exodecorateur_angryballs.visitor.Dessinateur;
+import exodecorateur_angryballs.visitor.VisitorBille;
 import exodecorateur_angryballs.visitor.DessinateurAWT;
 
 
@@ -26,7 +26,7 @@ import exodecorateur_angryballs.visitor.DessinateurAWT;
 public class Billard extends JPanel
 {
 	Vector<Bille> billes;
-	Dessinateur d;
+	VisitorBille d;
 	
     public Billard(Vector<Bille> billes) {
     	this.billes = billes;
@@ -44,10 +44,13 @@ public class Billard extends JPanel
     	
     	int i;
     	for ( i = 0; i < this.billes.size(); ++i) {
-//    		this.billes.get(i).dessine(graphics);
+    		// Ancienne manière de dessiner les billes
+    		// this.billes.get(i).dessine(graphics);
+    		
+    		// Dessin utilisant le DP Visitor
     		this.billes.get(i).dessine(d);
     		
     	}
-    	//System.out.println("billes dans le billard = " + billes);
+    	
     }
 }

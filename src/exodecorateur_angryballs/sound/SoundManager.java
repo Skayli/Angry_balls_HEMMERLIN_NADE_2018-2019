@@ -49,12 +49,10 @@ public class SoundManager {
 			ligne = AudioSystem.getSourceDataLine(format);
 			ligne.open(format);
 
-			// Controle du volume
+			// Controle du volume 
 		    FloatControl gainControl = 	(FloatControl)	ligne.getControl(FloatControl.Type.MASTER_GAIN);
-		    double gain = intensite; 
-		    float dB = (float) (Math.log(gain) / Math.log(10.0) * 30.0);
+		    float dB = (float) (Math.log(intensite) / Math.log(10.0) * 30.0);
 		    dB = Math.min(6, Math.max(-80, dB)); // -80 < dB < 6  
-		    System.out.println("Volume : " + dB);
 		    gainControl.setValue(dB);
 
 			int tailleFrame;

@@ -2,7 +2,7 @@ package exodecorateur_angryballs.modele;
 
 import java.util.Vector;
 
-import exodecorateur_angryballs.visitor.Dessinateur;
+import exodecorateur_angryballs.visitor.VisitorBille;
 import mesmaths.geometrie.base.Vecteur;
 
 
@@ -32,7 +32,7 @@ public abstract class Bille
 	
 	
 //	public abstract void dessine(Graphics g);
-	public abstract void dessine(Dessinateur d);
+	public abstract void dessine(VisitorBille d);
 
 	public abstract void deplacer(double deltaT);
 	

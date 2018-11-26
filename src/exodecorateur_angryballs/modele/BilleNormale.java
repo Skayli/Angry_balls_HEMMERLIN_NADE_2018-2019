@@ -3,7 +3,7 @@ package exodecorateur_angryballs.modele;
 import java.awt.Color;
 import java.util.Vector;
 
-import exodecorateur_angryballs.visitor.Dessinateur;
+import exodecorateur_angryballs.visitor.VisitorBille;
 import mesmaths.cinematique.Cinematique;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Geop;
@@ -128,6 +128,7 @@ public class BilleNormale extends Bille
 		Cinematique.mouvementUniformémentAccéléré( this.getPosition(), this.getVitesse(), this.getAcceleration(), deltaT);
 	}
 	
+// ------------- Ancienne fonction "visite" -----------------------	
 //	public void dessine (Graphics g)
 //    {
 //	    int width, height;
@@ -144,8 +145,9 @@ public class BilleNormale extends Bille
 //	    g.drawOval(xMin, yMin, width, height);
 //    }
 	
-	public void dessine(Dessinateur d) {
-		d.dessine(this);
+	// Nouvelle méthode "visite" avec un visitor
+	public void dessine(VisitorBille d) {
+		d.visite(this);
 	}
 
 

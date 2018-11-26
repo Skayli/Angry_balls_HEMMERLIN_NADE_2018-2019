@@ -2,11 +2,11 @@ package exodecorateur_angryballs.visitor;
 
 import exodecorateur_angryballs.modele.Bille;
 
-public abstract class Dessinateur {
+public abstract class VisitorBille {
 	
-	public Dessinateur() {
+	public VisitorBille() {
 		
 	}
 	
-	public abstract void dessine(Bille bille);
+	public abstract void visite(Bille bille);
 }

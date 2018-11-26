@@ -2,7 +2,7 @@ package exodecorateur_angryballs.modele;
 
 import java.awt.Graphics;
 
-import exodecorateur_angryballs.visitor.Dessinateur;
+import exodecorateur_angryballs.visitor.VisitorBille;
 import mesmaths.geometrie.base.Vecteur;
 
 public abstract class DecorateurBille extends Bille
@@ -55,8 +55,8 @@ public abstract class DecorateurBille extends Bille
 //		this.billeDecoree.dessine(g);
 //	}
 	
-	public void dessine(Dessinateur d) {
-		d.dessine(this);
+	public void dessine(VisitorBille d) {
+		d.visite(this);
 	}
 	
 	public void deplacer(double deltaT)

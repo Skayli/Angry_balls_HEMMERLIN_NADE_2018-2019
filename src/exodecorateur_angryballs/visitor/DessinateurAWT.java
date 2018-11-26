@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import exodecorateur_angryballs.modele.Bille;
 import exodecorateur_angryballs.modele.Couleur;
 
-public class DessinateurAWT extends Dessinateur {
+public class DessinateurAWT extends VisitorBille {
 	
 	Graphics g;
 	
@@ -18,7 +18,7 @@ public class DessinateurAWT extends Dessinateur {
 	}
 
 	@Override
-	public void dessine(Bille bille) {
+	public void visite(Bille bille) {
 		// TODO Auto-generated method stub	
 	    int width, height;
 	    int xMin, yMin;

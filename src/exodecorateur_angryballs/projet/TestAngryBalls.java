@@ -99,7 +99,7 @@ public class TestAngryBalls {
 		
 		//-------------------- Nouvelle bille avec le comportement "pilotée" --------
 		billes.add(new ComportementBillePilotee(new BilleNormale(p5,rayon,v5, Couleur.gray()),souris));
-//		billes.add(new ComportementRepoussee(new BilleNormale(p6,rayon,v6,Couleur.pink()))); //Bille repoussee par les autres billes (Newton inversé)
+		billes.add(new ComportementRepoussee(new BilleNormale(p6,rayon,v6,Couleur.pink()))); //Bille repoussee par les autres billes (Newton inversé)
 		
 		//---------------------- ici finit la partie à changer ------------------------------------------------------------
 		

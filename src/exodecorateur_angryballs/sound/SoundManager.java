@@ -31,17 +31,9 @@ public class SoundManager {
 	public void playShockSound(double intensite) {
 		
 		try {
-			//File fichier;
-			FileInputStream f;
-			File père, f1, ici;
-
-			père = new File("");
-			ici = new File(père.getAbsoluteFile(),"musique");
-			f1 = new File(ici.getAbsoluteFile(),"bille_bille.wav");
-
 			AudioInputStream audioInputStream;
 			
-			audioInputStream = AudioSystem.getAudioInputStream(f1);
+			audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("musique/bille_bille.wav"));
 			AudioFormat format= audioInputStream.getFormat();
 			
 			SourceDataLine ligne;
